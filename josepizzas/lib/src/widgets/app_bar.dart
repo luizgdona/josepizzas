@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AppBarPizzas extends StatelessWidget {
+class AppBarPizzas extends StatelessWidget implements PreferredSizeWidget {
   const AppBarPizzas({Key? key}) : super(key: key);
 
   @override
@@ -12,4 +12,7 @@ class AppBarPizzas extends StatelessWidget {
       title: const Text('José Pizzas'),
     );
   }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(25);
 }
