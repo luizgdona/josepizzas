@@ -6,7 +6,7 @@ class AppBarPizzas extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      elevation: 2,
+      elevation: 3,
       centerTitle: true,
       backgroundColor: Colors.orange,
       title: const Text('José Pizzas'),

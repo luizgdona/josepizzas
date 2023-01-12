@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:josepizzas/src/views/order_page.dart';
 import 'package:josepizzas/src/widgets/app_bar.dart';
 
 import '../widgets/table_list.dart';
@@ -40,6 +41,12 @@ class _TablePageState extends State<TablePage> {
                   return TableCard(
                       cardColor: mesas[index] ? Colors.red : Colors.green,
                       mesaText: 'Mesa $index',
+                      longRoute: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const OrderPage()));
+                      },
                       tapTap: () {
                         setState(() {
                           mesas[index] = !mesas[index];

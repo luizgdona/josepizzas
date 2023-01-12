@@ -6,20 +6,23 @@ class TableCard extends StatelessWidget {
     required this.mesaText,
     required this.tapTap,
     required this.cardColor,
+    required this.longRoute,
   }) : super(key: key);
 
   final String mesaText;
   dynamic tapTap;
   dynamic cardColor;
+  dynamic longRoute;
 
   @override
   Widget build(BuildContext context) {
     return Card(
       color: cardColor,
       child: ListTile(
-        leading: const FlutterLogo(),
+        trailing: const FlutterLogo(),
         title: Text(mesaText),
         onTap: tapTap,
+        onLongPress: longRoute,
       ),
     );
   }
