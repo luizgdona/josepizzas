@@ -9,7 +9,7 @@ class TableCard extends StatelessWidget {
     required this.longRoute,
   }) : super(key: key);
 
-  final String mesaText;
+  String mesaText;
   dynamic tapTap;
   dynamic cardColor;
   dynamic longRoute;
