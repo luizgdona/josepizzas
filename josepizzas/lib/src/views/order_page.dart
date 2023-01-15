@@ -27,7 +27,7 @@ class _OrderPageState extends State<OrderPage> {
               itemBuilder: ((context, index) {
                 PizzaModel data = PizzaModel.data[index];
                 return OrderCard(
-                  addTap: null,
+                  addTap: () {},
                   orderText: '${data.pizza} x${data.qnt}',
                   priceText: 'R\$${data.price}',
                   myIcon: const Icon(Icons.local_pizza),
@@ -43,7 +43,7 @@ class _OrderPageState extends State<OrderPage> {
               itemBuilder: ((context, index) {
                 DrinksModel data = DrinksModel.data[index];
                 return OrderCard(
-                  addTap: null,
+                  addTap: () {},
                   orderText: '${data.drink} x${data.qnt}',
                   priceText: 'R\$${data.price}',
                   myIcon: const Icon(Icons.liquor),
@@ -59,7 +59,10 @@ class _OrderPageState extends State<OrderPage> {
               itemBuilder: ((context, index) {
                 DessertsModel data = DessertsModel.data[index];
                 return OrderCard(
-                  addTap: null,
+                  addTap: () async {
+                    setState(() {});
+                    finalBill.add(data.price);
+                  },
                   orderText: '${data.desserts} x${data.qnt}',
                   priceText: 'R\$${data.price}',
                   myIcon: const Icon(Icons.icecream),
@@ -67,9 +70,14 @@ class _OrderPageState extends State<OrderPage> {
               }),
             ),
             const SizedBox(),
+            Text('Total da Conta = R\$$totalBill'),
           ]),
         ),
       ),
     );
   }
+
+  List finalBill = [];
+  late int totalBill = finalBill.fold(
+      0, (previousValue, element) => (previousValue + element).toInt());
 }
