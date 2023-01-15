@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:josepizzas/src/models/order_menus.dart';
 import 'package:josepizzas/src/widgets/app_bar.dart';
+import 'package:josepizzas/src/widgets/order_card.dart';
 
 class OrderPage extends StatefulWidget {
   const OrderPage({Key? key}) : super(key: key);
@@ -25,12 +26,10 @@ class _OrderPageState extends State<OrderPage> {
               itemCount: 4,
               itemBuilder: ((context, index) {
                 PizzaModel data = PizzaModel.data[index];
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('${data.pizza} x${data.qnt}'),
-                    Text('\$${data.price}'),
-                  ],
+                return OrderCard(
+                  addTap: null,
+                  orderText: '${data.pizza} x${data.qnt}',
+                  priceText: 'R\$${data.price}',
                 );
               }),
             ),
@@ -42,12 +41,10 @@ class _OrderPageState extends State<OrderPage> {
               itemCount: 3,
               itemBuilder: ((context, index) {
                 DrinksModel data = DrinksModel.data[index];
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('${data.drink} x${data.qnt}'),
-                    Text('\$${data.price}'),
-                  ],
+                return OrderCard(
+                  addTap: null,
+                  orderText: '${data.drink} x${data.qnt}',
+                  priceText: 'R\$${data.price}',
                 );
               }),
             ),
@@ -59,12 +56,10 @@ class _OrderPageState extends State<OrderPage> {
               itemCount: 2,
               itemBuilder: ((context, index) {
                 DessertsModel data = DessertsModel.data[index];
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('${data.desserts} x${data.qnt}'),
-                    Text('\$${data.price}'),
-                  ],
+                return OrderCard(
+                  addTap: null,
+                  orderText: '${data.desserts} x${data.qnt}',
+                  priceText: 'R\$${data.price}',
                 );
               }),
             ),
