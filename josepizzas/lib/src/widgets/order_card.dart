@@ -6,17 +6,19 @@ class OrderCard extends StatelessWidget {
     required this.orderText,
     required this.priceText,
     required this.addTap,
+    required this.myIcon,
   }) : super(key: key);
 
   String orderText;
   String priceText;
+  dynamic myIcon;
   dynamic addTap;
 
   @override
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        leading: const FlutterLogo(),
+        leading: myIcon,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

@@ -22,7 +22,7 @@ class DrinksModel {
 
   static List<DrinksModel> data = [
     DrinksModel(drink: 'Cerveja', qnt: 1, price: 15),
-    DrinksModel(drink: 'Coca', qnt: 1, price: 8),
+    DrinksModel(drink: 'Coca-Cola', qnt: 1, price: 8),
     DrinksModel(drink: 'Água', qnt: 1, price: 5),
   ];
 }

@@ -19,7 +19,7 @@ class TableCard extends StatelessWidget {
     return Card(
       color: cardColor,
       child: ListTile(
-        trailing: const FlutterLogo(),
+        trailing: const Icon(Icons.table_bar),
         title: Text(mesaText),
         onTap: tapTap,
         onLongPress: longRoute,

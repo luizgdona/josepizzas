@@ -30,6 +30,7 @@ class _OrderPageState extends State<OrderPage> {
                   addTap: null,
                   orderText: '${data.pizza} x${data.qnt}',
                   priceText: 'R\$${data.price}',
+                  myIcon: const Icon(Icons.local_pizza),
                 );
               }),
             ),
@@ -45,6 +46,7 @@ class _OrderPageState extends State<OrderPage> {
                   addTap: null,
                   orderText: '${data.drink} x${data.qnt}',
                   priceText: 'R\$${data.price}',
+                  myIcon: const Icon(Icons.liquor),
                 );
               }),
             ),
@@ -60,6 +62,7 @@ class _OrderPageState extends State<OrderPage> {
                   addTap: null,
                   orderText: '${data.desserts} x${data.qnt}',
                   priceText: 'R\$${data.price}',
+                  myIcon: const Icon(Icons.icecream),
                 );
               }),
             ),
