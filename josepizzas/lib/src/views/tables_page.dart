@@ -7,8 +7,9 @@ import '../widgets/table_list.dart';
 class TablePage extends StatefulWidget {
   const TablePage({
     Key? key,
-    required String title,
   }) : super(key: key);
+
+  static String routeName = '/home';
 
   @override
   State<TablePage> createState() => _TablePageState();

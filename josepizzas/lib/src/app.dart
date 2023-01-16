@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
-import 'views/tables_page.dart';
+import 'package:josepizzas/src/views/order_hist.dart';
+import 'package:josepizzas/src/views/order_page.dart';
+import 'package:josepizzas/src/views/tables_page.dart';
 
 class JosePizza extends StatelessWidget {
   const JosePizza({Key? key}) : super(key: key);
@@ -14,7 +15,12 @@ class JosePizza extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      home: const TablePage(title: 'José Pizzas'),
+      initialRoute: '/home',
+      routes: {
+        '/home': (context) => const TablePage(),
+        '/orderpage': (context) => const OrderPage(),
+        '/histo': (context) => const OrderHist(),
+      },
     );
   }
 }

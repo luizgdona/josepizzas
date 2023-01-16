@@ -6,11 +6,18 @@ import 'package:josepizzas/src/widgets/order_card.dart';
 class OrderPage extends StatefulWidget {
   const OrderPage({Key? key}) : super(key: key);
 
+  static String routeName = '/orderpage';
+
   @override
   State<OrderPage> createState() => _OrderPageState();
 }
 
 class _OrderPageState extends State<OrderPage> {
+  List finalBill = [];
+  late int totalBill = finalBill.fold(0, (i, j) => (i + j).toInt());
+
+  void updateBill() {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +34,10 @@ class _OrderPageState extends State<OrderPage> {
               itemBuilder: ((context, index) {
                 PizzaModel data = PizzaModel.data[index];
                 return OrderCard(
-                  addTap: () {},
+                  addTap: () {
+                    finalBill.add(data.price);
+                    setState(() {});
+                  },
                   orderText: '${data.pizza} x${data.qnt}',
                   priceText: 'R\$${data.price}',
                   myIcon: const Icon(Icons.local_pizza),
@@ -43,7 +53,10 @@ class _OrderPageState extends State<OrderPage> {
               itemBuilder: ((context, index) {
                 DrinksModel data = DrinksModel.data[index];
                 return OrderCard(
-                  addTap: () {},
+                  addTap: () {
+                    finalBill.add(data.price);
+                    setState(() {});
+                  },
                   orderText: '${data.drink} x${data.qnt}',
                   priceText: 'R\$${data.price}',
                   myIcon: const Icon(Icons.liquor),
@@ -60,8 +73,8 @@ class _OrderPageState extends State<OrderPage> {
                 DessertsModel data = DessertsModel.data[index];
                 return OrderCard(
                   addTap: () async {
-                    setState(() {});
                     finalBill.add(data.price);
+                    setState(() {});
                   },
                   orderText: '${data.desserts} x${data.qnt}',
                   priceText: 'R\$${data.price}',
@@ -70,14 +83,23 @@ class _OrderPageState extends State<OrderPage> {
               }),
             ),
             const SizedBox(),
-            Text('Total da Conta = R\$$totalBill'),
+            Text('$finalBill'),
+            Card(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Total da Conta = R\$$totalBill'),
+                  FloatingActionButton(
+                      child: const Icon(Icons.save),
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/home');
+                      }),
+                ],
+              ),
+            ),
           ]),
         ),
       ),
     );
   }
-
-  List finalBill = [];
-  late int totalBill = finalBill.fold(
-      0, (previousValue, element) => (previousValue + element).toInt());
 }
