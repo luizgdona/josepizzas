@@ -13,17 +13,13 @@ class OrderPage extends StatefulWidget {
 }
 
 class OrderPageState extends State<OrderPage> {
+  List orderItens = [];
   List<int> finalBill = [];
   int totalBill = 0;
 
-  void billUppdate() {
+  void billUpdate() {
     totalBill = finalBill.fold(0, (i, j) => (i + j));
     setState(() {});
-  }
-
-  @override
-  void initState() {
-    super.initState();
   }
 
   @override
@@ -43,9 +39,10 @@ class OrderPageState extends State<OrderPage> {
                 PizzaModel data = PizzaModel.data[index];
                 return OrderCard(
                   addTap: () {
+                    orderItens.add(data.pizza);
                     finalBill.add(data.price);
                     setState(() {
-                      billUppdate();
+                      billUpdate();
                     });
                   },
                   orderText: '${data.pizza} x${data.qnt}',
@@ -64,9 +61,10 @@ class OrderPageState extends State<OrderPage> {
                 DrinksModel data = DrinksModel.data[index];
                 return OrderCard(
                   addTap: () {
+                    orderItens.add(data.drink);
                     finalBill.add(data.price);
                     setState(() {
-                      billUppdate();
+                      billUpdate();
                     });
                   },
                   orderText: '${data.drink} x${data.qnt}',
@@ -85,9 +83,10 @@ class OrderPageState extends State<OrderPage> {
                 DessertsModel data = DessertsModel.data[index];
                 return OrderCard(
                   addTap: () {
+                    orderItens.add(data.desserts);
                     finalBill.add(data.price);
                     setState(() {
-                      billUppdate();
+                      billUpdate();
                     });
                   },
                   orderText: '${data.desserts} x${data.qnt}',
@@ -97,7 +96,7 @@ class OrderPageState extends State<OrderPage> {
               }),
             ),
             const SizedBox(),
-            Text('$finalBill'),
+            Text('$orderItens'),
             Card(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
