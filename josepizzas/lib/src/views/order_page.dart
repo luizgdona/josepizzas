@@ -14,7 +14,12 @@ class OrderPage extends StatefulWidget {
 
 class OrderPageState extends State<OrderPage> {
   List<int> finalBill = [];
-  late int totalBill = finalBill.fold(0, (i, j) => (i + j));
+  int totalBill = 0;
+
+  void billUppdate() {
+    totalBill = finalBill.fold(0, (i, j) => (i + j));
+    setState(() {});
+  }
 
   @override
   void initState() {
@@ -39,7 +44,9 @@ class OrderPageState extends State<OrderPage> {
                 return OrderCard(
                   addTap: () {
                     finalBill.add(data.price);
-                    setState(() {});
+                    setState(() {
+                      billUppdate();
+                    });
                   },
                   orderText: '${data.pizza} x${data.qnt}',
                   priceText: 'R\$${data.price}',
@@ -58,7 +65,9 @@ class OrderPageState extends State<OrderPage> {
                 return OrderCard(
                   addTap: () {
                     finalBill.add(data.price);
-                    setState(() {});
+                    setState(() {
+                      billUppdate();
+                    });
                   },
                   orderText: '${data.drink} x${data.qnt}',
                   priceText: 'R\$${data.price}',
@@ -77,7 +86,9 @@ class OrderPageState extends State<OrderPage> {
                 return OrderCard(
                   addTap: () {
                     finalBill.add(data.price);
-                    setState(() {});
+                    setState(() {
+                      billUppdate();
+                    });
                   },
                   orderText: '${data.desserts} x${data.qnt}',
                   priceText: 'R\$${data.price}',
