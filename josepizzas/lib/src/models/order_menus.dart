@@ -1,9 +1,9 @@
 class PizzaModel {
   String? pizza;
   int? qnt;
-  int? price;
+  int price;
 
-  PizzaModel({this.pizza, this.qnt, this.price});
+  PizzaModel({this.pizza, this.qnt, required this.price});
 
   static List<PizzaModel> data = [
     PizzaModel(pizza: 'Margherita', qnt: 1, price: 40),
@@ -16,9 +16,9 @@ class PizzaModel {
 class DrinksModel {
   String? drink;
   int? qnt;
-  int? price;
+  int price;
 
-  DrinksModel({this.drink, this.qnt, this.price});
+  DrinksModel({this.drink, this.qnt, required this.price});
 
   static List<DrinksModel> data = [
     DrinksModel(drink: 'Cerveja', qnt: 1, price: 15),
@@ -30,9 +30,9 @@ class DrinksModel {
 class DessertsModel {
   String? desserts;
   int? qnt;
-  int? price;
+  int price;
 
-  DessertsModel({this.desserts, this.qnt, this.price});
+  DessertsModel({this.desserts, this.qnt, required this.price});
 
   static List<DessertsModel> data = [
     DessertsModel(desserts: 'Tiramissu', qnt: 1, price: 20),

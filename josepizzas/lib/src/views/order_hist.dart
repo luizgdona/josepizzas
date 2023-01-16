@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class OrderHist extends StatefulWidget {
-  const OrderHist({Key? key}) : super(key: key);
+  const OrderHist({super.key});
 
   static String routeName = '/histo';
 

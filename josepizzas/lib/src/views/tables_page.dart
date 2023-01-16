@@ -5,17 +5,15 @@ import 'package:josepizzas/src/widgets/app_bar.dart';
 import '../widgets/table_list.dart';
 
 class TablePage extends StatefulWidget {
-  const TablePage({
-    Key? key,
-  }) : super(key: key);
+  const TablePage({super.key});
 
   static String routeName = '/home';
 
   @override
-  State<TablePage> createState() => _TablePageState();
+  State<TablePage> createState() => TablePageState();
 }
 
-class _TablePageState extends State<TablePage> {
+class TablePageState extends State<TablePage> {
   //int tappedIndex;
 
   @override
@@ -23,7 +21,7 @@ class _TablePageState extends State<TablePage> {
     super.initState();
   }
 
-  final mesas = List<bool>.generate(12, (index) => false);
+  final mesas = List<bool>.generate(10, (index) => false);
   //bool greenRed = true;
 
   @override

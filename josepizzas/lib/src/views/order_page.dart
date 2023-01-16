@@ -4,19 +4,22 @@ import 'package:josepizzas/src/widgets/app_bar.dart';
 import 'package:josepizzas/src/widgets/order_card.dart';
 
 class OrderPage extends StatefulWidget {
-  const OrderPage({Key? key}) : super(key: key);
+  const OrderPage({super.key});
 
   static String routeName = '/orderpage';
 
   @override
-  State<OrderPage> createState() => _OrderPageState();
+  State<OrderPage> createState() => OrderPageState();
 }
 
-class _OrderPageState extends State<OrderPage> {
-  List finalBill = [];
-  late int totalBill = finalBill.fold(0, (i, j) => (i + j).toInt());
+class OrderPageState extends State<OrderPage> {
+  List<int> finalBill = [];
+  late int totalBill = finalBill.fold(0, (i, j) => (i + j));
 
-  void updateBill() {}
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +75,7 @@ class _OrderPageState extends State<OrderPage> {
               itemBuilder: ((context, index) {
                 DessertsModel data = DessertsModel.data[index];
                 return OrderCard(
-                  addTap: () async {
+                  addTap: () {
                     finalBill.add(data.price);
                     setState(() {});
                   },
@@ -88,11 +91,13 @@ class _OrderPageState extends State<OrderPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  //Text('Total da Conta = R${finalBill.fold(0, (i, j) => i + j)}'),
                   Text('Total da Conta = R\$$totalBill'),
                   FloatingActionButton(
                       child: const Icon(Icons.save),
                       onPressed: () {
-                        Navigator.pushNamed(context, '/home');
+                        Navigator.pushNamed(context, '/home',
+                            arguments: totalBill);
                       }),
                 ],
               ),
